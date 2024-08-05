@@ -17,7 +17,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  padding-block-start: 102px;
+  padding-block-start: 100px;
   font-family: var(--main-font);
   font-variation-settings: "wght" var(--weigth-text);
   background-color: var(--bg-color);
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto 100px;
+  margin: 0 auto 99px;
   background-color: var(--bg-color);
   padding-block: clamp(118px, 12vw, 136px) 6px;
   border: var(--border);
@@ -51,7 +51,7 @@
 .closing-tag {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-family: var(--accent-font);
-  margin-block-start: 19px;
+  margin-block-start: 22px;
   text-transform: uppercase;
   margin-block-end: 25px;
 }
@@ -131,6 +131,9 @@
   background-color: var(--bg-color);
 }
 
+.card-conteiner {
+  position: relative;
+}
 
 .main__title {
   background-color: var(--bg-color);
@@ -138,14 +141,14 @@
   font-size: 18px;
   font-weight: var(--weigth-heading);
   line-height: 21.78px;
-  padding: 6px 10px 0px 10px;
+  padding: 6px 10px 3px 10px;
   font-variation-settings: "wght" var(--weigth-heading);
 }
 
 .content-paragraf {
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 21px 25px 0px 25px;
   line-height: 21px;
   font-size: 18px;
 }
@@ -228,9 +231,10 @@
 }
 
 .card__icon-button:focus-visible {
-  border: var(--border);
+  outline: var(--border);
   transform: var(--transform-time);
   transform: var(--transition-function);
+  outline-offset: -2px;
 }
 
 .image-car {
@@ -243,13 +247,9 @@
   object-position: center;
 }
 
-.image-car:nth-of-type(7)   {
-  inline-size: 95%;
-}
-
 @media (min-width: 600px) {
   .image-car {
-    height: 700px;
+      height: 700px;
   }
 }
 
@@ -288,11 +288,11 @@
   font-variation-settings: var(--weigth-text);
   mix-blend-mode: hard-light;
   text-shadow: -1px 0 var(--bg-color), 0 1px var(--bg-color), 1px 0 var(--bg-color), 0 -1px var(--bg-color);
-   margin-block-start: 28px;
-right: 13px;
-font-family: var(--accent-font);
-font-size: 14px;
-line-height: 14px;
+  margin-block-start: 25px;
+  right: 13px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 14px;
 }
 
 @supports (-webkit-text-stroke: 1px var(--bg-color)) {
@@ -303,10 +303,11 @@ line-height: 14px;
 }
 
 @media (min-width: 380px) {
-.label {
-  margin-block-start: 27px;
-  right: 25px;
-}
+  .label {
+      position: absolute;
+      margin-block-start: 27px;
+      right: 25px;
+  }
 }
 
 .sparks {
@@ -386,13 +387,14 @@ line-height: 14px;
 }
 
 .save {
-  margin: 52px auto 0 auto;
+  margin: 52px auto 100px auto;
   background-color: var(--bg-color);
   border: var(--border);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
   max-block-size: 84px;
   min-inline-size: 306px;
   position: relative;
@@ -400,7 +402,6 @@ line-height: 14px;
   transition: box-shadow var(--transform-time);
   transition-timing-function: var(--transition-function);
 }
-
 
 .save::before {
   content: "";
@@ -440,7 +441,9 @@ line-height: 14px;
 }
 
 .footer-floppy {
-  padding-block-start: 15px;
+  margin-block-start: 15px;
+  block-size: 28px;
+  inline-size: auto;
   position: relative;
   z-index: 2;
   display: block;
@@ -448,6 +451,20 @@ line-height: 14px;
   color: var(--font-color);
 }
 
+@media (width > 380px) {
+  .save {
+      max-inline-size: 335px;
+      flex-direction: row;
+      display: flex;
+      align-items: flex-end;
+      min-block-size: 55px;
+  }
+
+  .footer-floppy {
+      margin: 0 2px 0 19px;
+      block-size: 20px;
+  }
+}
 
 .window[open] {
   display: grid;
@@ -521,7 +538,6 @@ line-height: 14px;
   transform: scaleX(1);
 }
 
-
 .window-buttonok {
   font-family: var(--accent-font);
   font-size: 14px;
@@ -534,6 +550,6 @@ line-height: 14px;
   mix-blend-mode: difference;
 }
 
-dialog::backdrop {
+.window::backdrop {
   background-color: rgb(0 0 0 / 0.75);
 }
